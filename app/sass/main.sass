@@ -93,9 +93,14 @@ header
 .header-info
 	font-size: 18px
 	line-height: 28px
+	// background: #000
+	// opacity: 0.01
+	z-index: 2
 	&__lang
 		display: inline-block
+		position: relative
 		text-transform: uppercase
+		z-index: 2
 		& .fa-chevron-right
 				font-size: 12px
 				transform: rotate(90deg)
@@ -104,10 +109,12 @@ header
 	&__location
 		display: inline-block
 		position: relative
+		z-index: 2
 		margin-left: 73px
 	&__city
 		margin: 0 25px 0 5px 
 .horisontal-menu
+	position: relative
 	width: 100%
 	margin: 0 30px
 	border-bottom: 1px solid #B29A73
@@ -133,6 +140,8 @@ header
 			color: inherit
 			font-weight: 700
 			text-decoration: none
+			&:hover
+				color: $light-grey
 		& .fa-phone
 			margin-right: 5px
 	&__button

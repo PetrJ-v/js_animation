@@ -136,10 +136,13 @@ header {
 
 .header-info {
   font-size: 18px;
-  line-height: 28px; }
+  line-height: 28px;
+  z-index: 2; }
   .header-info__lang {
     display: inline-block;
-    text-transform: uppercase; }
+    position: relative;
+    text-transform: uppercase;
+    z-index: 2; }
     .header-info__lang .fa-chevron-right {
       font-size: 12px;
       -webkit-transform: rotate(90deg);
@@ -150,11 +153,13 @@ header {
   .header-info__location {
     display: inline-block;
     position: relative;
+    z-index: 2;
     margin-left: 73px; }
   .header-info__city {
     margin: 0 25px 0 5px; }
 
 .horisontal-menu {
+  position: relative;
   width: 100%;
   margin: 0 30px;
   border-bottom: 1px solid #B29A73;
@@ -184,6 +189,8 @@ header {
     color: inherit;
     font-weight: 700;
     text-decoration: none; }
+    .callback__phone-number a:hover {
+      color: #E0E0E0; }
   .callback__phone-number .fa-phone {
     margin-right: 5px; }
   .callback__button {
