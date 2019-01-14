@@ -288,8 +288,10 @@ header {
     top: 50vh; } }
 
 /* Large Devices, Wide Screens */
-@media only screen and (max-width: 1400px) {
-  /**/ }
+@media only screen and (max-width: 1500px) {
+  /**/
+  .header__center-text {
+    letter-spacing: 50px; } }
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1200px) {

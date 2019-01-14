@@ -1,6 +1,13 @@
 (function($){
 	$(document).ready(function(){
 		
+		/**
+			 * Анимирует текстовую строку. Символы по одному появляются друг за другом.
+			 * @param {string} className Имы класса контейнера, в котором содержится нужная строка.
+			 * @param {number} duration Длительность анимации в милисекундах. Необязательный параметр
+			 * @param {function} [complete] Необязательная функция, которая будет вызвана, когда анимация будет завершена.
+			 * @return {object} Dom элемент с классом className.
+		 */
 		$.fn.animateText = function(className, duration, complete) {
 			var string = this.text(),
 				duration = duration ? duration : 400;
@@ -34,13 +41,13 @@
 			 * Анимирует ДОМ элемент путем изменения его размера.
 			 * @param {number} value Процентное соотношение от первоначального размера элемента.
 			 * Допускаются отрицательные значения.
-			 * @param {number} delay Длительность анимации в милисекундах.
+			 * @param {number} duration Длительность анимации в милисекундах.
 			 * @param {function} [complete] Необязательная функция, которая будет вызвана, когда анимация будет завершена.
 			 * @return {object} Дом элемент, который анимировался, с новыми значениями ширины и высоты.
 		 */
-		$.fn.sizeAnimation = function(value, delay, complete) {
+		$.fn.sizeAnimation = function(value, duration, complete) {
 
-			var delay = delay ? delay : 800,
+			var duration = duration ? duration : 800,
 				$this = $(this);
 
 			$this.queue(function (next){
@@ -51,7 +58,7 @@
 				$this.width(currentWidth);
 				currentHeight = $this.height();
 				$this.height(currentHeight);
-				$this.css('transition', delay/1000 + 's');
+				$this.css('transition', duration/1000 + 's');
 				$this.width( currentWidth/100 * (100 + value) );
 				$this.height( currentHeight/100 * (100 + value) );
 				setTimeout(function () {
@@ -60,12 +67,19 @@
 						complete();
 					};
 					next();
-				}, delay);
+				}, duration);
 			});
 
 			return this;
 		};
 
+		/**
+			 * Применяет fadeIn или fadeOut эффект к выбранному набору элементов.
+			 * @param {string} effect Имя эффекта (fadeIn либо fadeOut).
+			 * @param {number} duration Длительность анимации в милисекундах. Необязательный параметр
+			 * @param {function} [complete] Необязательная функция, которая будет вызвана, когда анимация будет завершена.
+			 * @return {object} Изначальный набор элементов.
+		 */
 		$.fn.fadeElements = function (effect, duration, complete) {
 			var $this = $(this),
 				elCount = $this.length;
